@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Am So Sorry, My Love... Celebrating 2 Years Together</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display & Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        roseBlush: '#fff1f2',
+                        softPink: '#fecdd3',
+                        deepRose: '#e11d48',
+                        warmLavender: '#f3e8ff',
+                        romanticRed: '#be123c',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fff1f2 0%, #f3e8ff 50%, #ffe4e6 100%);
+            color: #4c0519;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 182, 193, 0.4);
+            box-shadow: 0 20px 40px rgba(225, 29, 72, 0.08);
+        }
+        .floating-heart {
+            position: absolute;
+            color: rgba(225, 29, 72, 0.2);
+            animation: floatUp 8s infinite linear;
+            z-index: 0;
+            pointer-events: none;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(105vh) scale(0.6) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.2) rotate(360deg); opacity: 0; }
+        }
+        .pulse-glow {
+            animation: pulseGlow 3s infinite ease-in-out;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(225, 29, 72, 0.2); }
+            50% { box-shadow: 0 0 40px rgba(225, 29, 72, 0.4); }
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fff1f2; }
+        ::-webkit-scrollbar-thumb { background: #fecdd3; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #e11d48; }
+    </style>
+</head>
+<body class="relative selection:bg-rose-200 selection:text-rose-900">
+
+    <!-- Floating Background Hearts -->
+    <div id="hearts-container" class="fixed inset-0 overflow-hidden pointer-events-none z-0"></div>
+
+    <!-- Background Romantic Audio Player -->
+    <!-- INSTRUCTION: You can replace the src URL below with any direct MP3 audio link you prefer -->
+    <audio id="romantic-audio" loop preload="auto">
+        <source src="song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 glass-card border-b border-rose-200 px-6 py-4 transition-all duration-300">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="#" class="font-serif text-xl md:text-2xl font-bold text-rose-700 flex items-center gap-2">
+                <i class="fa-solid fa-heart text-rose-500 animate-pulse"></i> 2 Years Together ❤️
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-rose-900/80">
+                <a href="#letter" class="hover:text-rose-600 transition">My Apology</a>
+                <a href="#timeline" class="hover:text-rose-600 transition">Our 2-Year Journey</a>
+                <a href="#memories" class="hover:text-rose-600 transition">Photo Memories</a>
+                <a href="#forgive" class="hover:text-rose-600 transition">Forgive Me?</a>
+            </div>
+            <button onclick="toggleMusic()" id="music-btn" class="bg-rose-100 hover:bg-rose-200 text-rose-700 px-4 py-2 rounded-full text-xs md:text-sm font-semibold transition flex items-center gap-2 shadow-sm">
+                <i id="music-icon" class="fa-solid fa-music"></i> <span id="music-text">Play Romantic Song</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative z-10 min-h-[90vh] flex flex-col items-center justify-center text-center px-4 py-16">
+        <div class="max-w-3xl mx-auto glass-card p-8 md:p-14 rounded-3xl pulse-glow">
+            <span class="inline-block bg-rose-100 text-rose-700 text-xs md:text-sm font-semibold px-4 py-1.5 rounded-full uppercase tracking-widest mb-6 border border-rose-200 shadow-sm">
+                <i class="fa-solid fa-award mr-1"></i> Celebrating 2 Incredible Years Together
+            </span>
+            <h1 class="font-serif text-4xl md:text-6xl font-bold text-rose-950 mb-6 leading-tight">
+                I'm So Sorry, My Love... <br><span class="italic text-rose-600">Please Forgive Me</span>
+            </h1>
+            <p class="text-base md:text-lg text-rose-900/80 mb-8 max-w-xl mx-auto leading-relaxed">
+                After 2 years of building the most wonderful memories, loving you, and sharing our lives, seeing you extremely mad breaks my heart. I want to make things right.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#letter" class="bg-rose-600 hover:bg-rose-700 text-white font-medium px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 flex items-center gap-2">
+                    <i class="fa-solid fa-envelope-open-text"></i> Read My Apology Letter
+                </a>
+                <a href="#forgive" class="bg-white hover:bg-rose-50 text-rose-700 border border-rose-300 font-medium px-8 py-3.5 rounded-full shadow transition transform hover:-translate-y-0.5 flex items-center gap-2">
+                    <i class="fa-solid fa-heart"></i> Skip to Forgiveness
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-6 animate-bounce text-rose-500">
+            <a href="#letter"><i class="fa-solid fa-chevron-down text-xl"></i></a>
+        </div>
+    </header>
+
+    <main class="relative z-10 max-w-5xl mx-auto px-4 space-y-24 pb-24">
+
+        <!-- Apology Letter Section -->
+        <section id="letter" class="scroll-mt-28">
+            <div class="glass-card rounded-3xl p-8 md:p-14 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-48 h-48 bg-rose-200/30 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center text-rose-600 text-xl font-serif font-bold shadow-inner">
+                        ❤️
+                    </div>
+                    <div>
+                        <h2 class="font-serif text-2xl md:text-3xl font-bold text-rose-950">A Letter from My Heart to Yours</h2>
+                        <p class="text-xs text-rose-700">Reflecting on our 2-year journey and my deepest regrets</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-rose-950/90 leading-relaxed text-base md:text-lg font-light border-l-2 border-rose-300 pl-6 my-6">
+                    <p>My dearest love,</p>
+                    <p>
+                        As I look back at the last 2 years we’ve spent together, my heart overflows with gratitude for every single smile, laugh, and adventure we shared. You have brought so much light, warmth, and genuine happiness into my life.
+                    </p>
+                    <p>
+                        That is why it kills me inside to know that I am the reason you are extremely mad and hurt right now. I take full responsibility for my actions and words. You deserve nothing less than absolute respect, patience, tenderness, and love—and I deeply regret letting you down.
+                    </p>
+                    <p>
+                        Our 2 years together mean the absolute world to me. I don't ever want to take your love for granted. Please take all the time and space you need, but know that I am truly, deeply sorry, and I want nothing more than to heal our bond and hold your hand again.
+                    </p>
+                    <p class="font-serif italic font-medium text-rose-700 pt-2">
+                        Forever yours through every high and low,<br>
+                        <span class="text-rose-950 font-sans font-semibold not-italic">The one who loves you endlessly ❤️</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2-Year Milestone Timeline -->
+        <section id="timeline" class="scroll-mt-28">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-semibold uppercase tracking-widest text-rose-600 bg-rose-100 px-3 py-1 rounded-full">Our Milestones</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-rose-950 mt-3 mb-2">2 Years of Unforgettable Chapters</h2>
+                <p class="text-rose-900/80">Every step of our 2-year journey together is etched in my heart forever.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-rose-500 shadow-md">
+                    <div class="text-rose-600 font-semibold text-sm mb-1"><i class="fa-solid fa-calendar-days mr-1"></i> Year 1: The Magic Begins</div>
+                    <h3 class="font-serif text-xl font-bold text-rose-950 mb-2">Falling Head Over Heels</h3>
+                    <p class="text-xs md:text-sm text-rose-900/80 leading-relaxed">The butterflies, our early dates, discovering our inside jokes, and realizing how perfectly our souls matched.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-purple-400 shadow-md">
+                    <div class="text-purple-600 font-semibold text-sm mb-1"><i class="fa-solid fa-calendar-days mr-1"></i> Year 2: Deepening Roots</div>
+                    <h3 class="font-serif text-xl font-bold text-rose-950 mb-2">Growing Stronger Together</h3>
+                    <p class="text-xs md:text-sm text-rose-900/80 leading-relaxed">Facing life hand-in-hand, supporting each other's dreams, and building a bond that is unbreakable.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Memories Section -->
+        <section id="memories" class="scroll-mt-28">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-rose-950 mb-4">Our 2-Year Photo Gallery</h2>
+                <p class="text-rose-900/80">
+                    Upload your real photos below, or place image files named <code class="bg-rose-100 px-2 py-0.5 rounded text-rose-800 font-mono text-xs">photo1.jpg</code>, <code class="bg-rose-100 px-2 py-0.5 rounded text-rose-800 font-mono text-xs">photo2.jpg</code>, and <code class="bg-rose-100 px-2 py-0.5 rounded text-rose-800 font-mono text-xs">photo3.jpg</code> in the same folder as this HTML file!
+                </p>
+                
+                <!-- Photo Upload Control -->
+                <div class="mt-6 inline-flex items-center gap-3 bg-white/90 p-2 px-5 rounded-full border border-rose-200 shadow-md">
+                    <label for="photo-upload" class="cursor-pointer text-xs md:text-sm font-semibold text-rose-700 hover:text-rose-900 flex items-center gap-2">
+                        <i class="fa-solid fa-cloud-arrow-up text-rose-500 text-lg"></i> Upload Our Photos From Device
+                    </label>
+                    <input type="file" id="photo-upload" accept="image/*" multiple class="hidden" onchange="handlePhotoUpload(event)">
+                </div>
+            </div>
+
+            <!-- Photo Grid -->
+            <div id="photo-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Polaroid Card 1 (Tuned to look for photo1.jpg first, falls back to placeholder) -->
+                <div class="glass-card p-4 pb-6 rounded-2xl transform hover:-translate-y-1 transition duration-300 shadow-md group">
+                    <div class="aspect-[4/5] rounded-xl overflow-hidden bg-rose-100 relative mb-4">
+                        <img src="photo1.jpeg" alt="Memory 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x750/fecdd3/9f1239?text=Add+photo1.jpg+Here'">
+                        <div class="absolute top-3 right-3 bg-white/80 backdrop-blur px-2.5 py-1 rounded-full text-xs font-medium text-rose-600 shadow">
+                            <i class="fa-solid fa-heart text-rose-500"></i> Year 1
+                        </div>
+                    </div>
+                    <h3 class="font-serif font-semibold text-rose-950 text-center text-lg">Where It All Began</h3>
+                    <p class="text-xs text-rose-700/80 text-center mt-1">The start of the best 2 years of my life.</p>
+                </div>
+
+                <!-- Polaroid Card 2 -->
+                <div class="glass-card p-4 pb-6 rounded-2xl transform hover:-translate-y-1 transition duration-300 shadow-md group">
+                    <div class="aspect-[4/5] rounded-xl overflow-hidden bg-rose-100 relative mb-4">
+                        <img src="photo2.jpeg" alt="Memory 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x750/fce7f3/881337?text=Add+photo2.jpg+Here'">
+                        <div class="absolute top-3 right-3 bg-white/80 backdrop-blur px-2.5 py-1 rounded-full text-xs font-medium text-rose-600 shadow">
+                            <i class="fa-solid fa-heart text-rose-500"></i> Special Date
+                        </div>
+                    </div>
+                    <h3 class="font-serif font-semibold text-rose-950 text-center text-lg">Your Radiant Smile</h3>
+                    <p class="text-xs text-rose-700/80 text-center mt-1">Seeing you smile is my greatest happiness.</p>
+                </div>
+
+                <!-- Polaroid Card 3 -->
+                <div class="glass-card p-4 pb-6 rounded-2xl transform hover:-translate-y-1 transition duration-300 shadow-md group">
+                    <div class="aspect-[4/5] rounded-xl overflow-hidden bg-rose-100 relative mb-4">
+                        <img src="photo3.jpeg" alt="Memory 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x750/ffe4e6/9f1239?text=Add+photo3.jpg+Here'">
+                        <div class="absolute top-3 right-3 bg-white/80 backdrop-blur px-2.5 py-1 rounded-full text-xs font-medium text-rose-600 shadow">
+                            <i class="fa-solid fa-heart text-rose-500"></i> Year 2
+                        </div>
+                    </div>
+                    <h3 class="font-serif font-semibold text-rose-950 text-center text-lg">Countless Adventures</h3>
+                    <p class="text-xs text-rose-700/80 text-center mt-1">Every moment by your side is a treasured memory.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Forgiveness Section -->
+        <section id="forgive" class="scroll-mt-28">
+            <div class="glass-card rounded-3xl p-8 md:p-14 text-center relative overflow-hidden pulse-glow">
+                <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-rose-200/40 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -left-10 -top-10 w-64 h-64 bg-purple-200/30 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="w-16 h-16 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-2xl mx-auto mb-6 shadow-inner">
+                    <i class="fa-solid fa-heart animate-bounce"></i>
+                </div>
+
+                <h2 class="font-serif text-3xl md:text-5xl font-bold text-rose-950 mb-4">
+                    Will you forgive me and let's cherish our 2 years together?
+                </h2>
+                <p class="text-rose-900/80 max-w-lg mx-auto mb-10 text-base md:text-lg">
+                    I promise to love you harder, listen better, and make you proud of us every single day.
+                </p>
+
+                <div id="action-buttons" class="flex flex-col sm:flex-row justify-center items-center gap-6 relative min-h-[120px]">
+                    <button onclick="triggerForgiveness()" class="bg-rose-600 hover:bg-rose-700 text-white font-semibold text-lg px-10 py-4 rounded-full shadow-xl hover:shadow-2xl transition transform hover:scale-105 flex items-center gap-3 z-20">
+                        <i class="fa-solid fa-heart"></i> Yes, I Forgive You ❤️
+                    </button>
+                    
+                    <button id="no-btn" onmouseover="dodgeButton()" onclick="dodgeButton()" class="bg-white hover:bg-gray-100 text-rose-700 border border-rose-300 font-semibold text-lg px-8 py-4 rounded-full shadow transition z-10">
+                        No 😢
+                    </button>
+                </div>
+
+                <!-- Success Message Box (Hidden by default) -->
+                <div id="success-msg" class="hidden mt-8 p-6 bg-white/95 rounded-2xl border border-rose-300 max-w-xl mx-auto animate-fade-in shadow-2xl">
+                    <div class="text-3xl mb-2">🎉💖✨</div>
+                    <h3 class="font-serif text-2xl font-bold text-rose-950 mb-2">Thank You, My Love!</h3>
+                    <p class="text-rose-900/80 text-sm md:text-base">
+                        You just made me the happiest person alive! Here is to celebrating our 2-year milestone and looking forward to many more happy years together. I love you endlessly! 🤗❤️️
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 border-t border-rose-200/60 text-xs md:text-sm text-rose-900/70 relative z-10">
+        <p>Created with infinite love and regret to celebrate our 2 years together. ❤️</p>
+    </footer>
+
+    <script>
+        // Generate Floating Ambient Background Hearts
+        function createFloatingHearts() {
+            const container = document.getElementById('hearts-container');
+            const heartCount = 20;
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = '<i class="fa-solid fa-heart"></i>';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (6 + Math.random() * 6) + 's';
+                heart.style.animationDelay = (Math.random() * 5) + 's';
+                heart.style.fontSize = (16 + Math.random() * 24) + 'px';
+                container.appendChild(heart);
+            }
+        }
+        createFloatingHearts();
+
+        // Background Music Controls
+        const audioEl = document.getElementById('romantic-audio');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            const btnText = document.getElementById('music-text');
+            const iconEl = document.getElementById('music-icon');
+            
+            if (!isPlaying) {
+                audioEl.play().then(() => {
+                    isPlaying = true;
+                    btnText.innerText = "Pause Song";
+                    iconEl.className = "fa-solid fa-pause";
+                }).catch(err => {
+                    console.log("Audio playback blocked by browser interaction policy", err);
+                });
+            } else {
+                audioEl.pause();
+                isPlaying = false;
+                btnText.innerText = "Play Romantic Song";
+                iconEl.className = "fa-solid fa-music";
+            }
+        }
+
+        // Playful Pleading Texts for the "No" Button
+        const pleadingTexts = [
+            "No 😢",
+            "Are you sure? 🥺",
+            "Think about 2 years! 😭",
+            "My heart is breaking! 💔",
+            "Pleaseee? 🙏",
+            "Don't do this! 😣",
+            "Give me a second chance! ✨"
+        ];
+        let clickCount = 0;
+
+        function dodgeButton() {
+            const noBtn = document.getElementById('no-btn');
+            const randomX = (Math.random() - 0.5) * 240;
+            const randomY = (Math.random() - 0.5) * 140;
+            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            
+            clickCount = (clickCount + 1) % pleadingTexts.length;
+            noBtn.innerText = pleadingTexts[clickCount];
+        }
+
+        // Forgiveness Confetti & Success Celebration
+        function triggerForgiveness() {
+            confetti({
+                particleCount: 180,
+                spread: 120,
+                origin: { y: 0.6 },
+                colors: ['#e11d48', '#f43f5e', '#fb7185', '#fecdd3', '#ffffff']
+            });
+
+            setTimeout(() => {
+                confetti({
+                    particleCount: 100,
+                    angle: 60,
+                    spread: 60,
+                    origin: { x: 0 },
+                    colors: ['#be123c', '#e11d48', '#fda4af']
+                });
+                confetti({
+                    particleCount: 100,
+                    angle: 120,
+                    spread: 60,
+                    origin: { x: 1 },
+                    colors: ['#be123c', '#e11d48', '#fda4af']
+                });
+            }, 300);
+
+            document.getElementById('action-buttons').style.display = 'none';
+            document.getElementById('success-msg').classList.remove('hidden');
+        }
+
+        // Handle Photo Upload by User
+        function handlePhotoUpload(event) {
+            const files = event.target.files;
+            if (!files || files.length === 0) return;
+
+            const grid = document.getElementById('photo-grid');
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const card = document.createElement('div');
+                    card.className = 'glass-card p-4 pb-6 rounded-2xl transform hover:-translate-y-1 transition duration-300 shadow-md group animate-fade-in';
+                    card.innerHTML = `
+                        <div class="aspect-[4/5] rounded-xl overflow-hidden bg-rose-100 relative mb-4">
+                            <img src="${e.target.result}" alt="Our Memory" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-3 right-3 bg-white/80 backdrop-blur px-2.5 py-1 rounded-full text-xs font-medium text-rose-600 shadow">
+                                <i class="fa-solid fa-heart text-rose-500"></i> Our Memory
+                            </div>
+                        </div>
+                        <h3 class="font-serif font-semibold text-rose-950 text-center text-lg">Special Moment</h3>
+                        <p class="text-xs text-rose-700/80 text-center mt-1">A cherished moment from our 2 years.</p>
+                    `;
+                    grid.prepend(card);
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>
